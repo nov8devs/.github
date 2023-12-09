@@ -1,0 +1,19 @@
+name: Add User from Issues
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  create-invite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Get issue data
+        uses: froi/add_invite_user@release/v1
+        with:
+          PARSING_RULES_PATH: ".github/parsing_rules.json"
+          USER_ROLE: "direct_member"
+          EMAIL: ${{ steps.get_input.outputs.email }}
+        env:
+          ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
