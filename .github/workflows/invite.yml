@@ -1,19 +1,17 @@
-name: Add User from Issues
-
 on:
   issues:
     types: [labeled]
 
 jobs:
-  create-invite:
+  automate_invite:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Get issue data
-        uses: froi/add_invite_user@release/v1
+      - name: Invite on label
+        uses: vj-abigo/invite-on-label@v1.4
         with:
-          PARSING_RULES_PATH: ".github/parsing_rules.json"
-          USER_ROLE: "direct_member"
-          EMAIL: ${{ steps.get_input.outputs.email }}
+          organization: nov8devs
+          label: invite me to the organisation
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          comment: "<b>Invitation sent to join the Nov8 GitHub Organisation. Welcome to the community 🎉</b><br><br>Don't forget after accepting to make it public so it appears on your GitHub profile for everyone else to see. You can do this by finding your name in the GitHub organisation list and change the dropdown to public https://github.com/orgs/nov8devs/people<br>Remember contributing to open source is not just about code, it's about collaboration, communication and adding value<br>I hope that helps"
         env:
-          ADMIN_TOKEN: ${{secrets.ADMIN_TOKEN}}
+          INVITE_TOKEN: ${{ secrets.INVITE_TOKEN }}
