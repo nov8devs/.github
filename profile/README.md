@@ -9,7 +9,7 @@
   - We use Discord for real-time communication and GitHub Issues for project-related discussions. Join our Discord server and check for active discussions on GitHub.
 
 ## Join Us 🚀
-- begin your open source contribution journey by join our [organisation]() and [discord]() 
+- begin your open source contribution journey by joining our [organisation]() and [discord]() 
 
 Have Fun and Keep Learning!
 Remember, our primary goal is not just to build great software but to learn and grow as a team. Have fun, be respectful, and let's create something amazing together!
